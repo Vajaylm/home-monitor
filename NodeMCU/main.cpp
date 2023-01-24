@@ -15,6 +15,9 @@ float temperature;
 float humidity;
 float pressure;
 
+unsigned long previousPublish = 0;
+const long interval = 10000;
+
 void connectToWifi()
 {
     Serial.println("Connecting to Wi-Fi...");
@@ -53,16 +56,19 @@ void setup()
 
 void loop()
 {
-    temperature = bme.readTemperature();
-    humidity = bme.readHumidity();
-    pressure = bme.readPressure() / 100.0F;
+    unsigned long currentMillis = millis();
+    if (currentMillis - previousPublish >= interval)
+    {
+        previousPublish = currentMillis;
+        temperature = bme.readTemperature();
+        humidity = bme.readHumidity();
+        pressure = bme.readPressure() / 100.0F;
 
-    Serial.print("Temperature: ");
-    Serial.println(temperature);
-    Serial.print("Humidity: ");
-    Serial.println(humidity);
-    Serial.print("Pressure: ");
-    Serial.println(pressure);
-
-    delay(2000);
+        Serial.print("Temperature: ");
+        Serial.println(temperature);
+        Serial.print("Humidity: ");
+        Serial.println(humidity);
+        Serial.print("Pressure: ");
+        Serial.println(pressure);
+    }
 }
