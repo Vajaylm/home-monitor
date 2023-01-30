@@ -1,0 +1,9 @@
+#define WIFI_SSID "SSID"
+#define WIFI_PASSWORD "Wifi password"
+#define MQTT_USER "Username"
+#define MQTT_PASSWORD "MQTT pass"
+
+#define MQTT_HOST IPAddress(192, 168, 1, 101)
+#define MQTT_PORT 1883
+
+#define MQTT_PUB_SENSOR "MQTT topic"
