@@ -11,4 +11,8 @@ public class WeatherConfig {
     public WeatherData inWeatherData() {
         return new WeatherData();
     }
+
+    public WeatherData outWeatherData() {
+        return new WeatherData();
+    }
 }
