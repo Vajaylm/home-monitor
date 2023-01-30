@@ -12,6 +12,7 @@ public class WeatherConfig {
         return new WeatherData();
     }
 
+    @Bean
     public WeatherData outWeatherData() {
         return new WeatherData();
     }
