@@ -15,6 +15,7 @@ import org.springframework.integration.mqtt.support.DefaultPahoMessageConverter;
 import org.springframework.messaging.MessageChannel;
 import org.springframework.messaging.MessageHandler;
 
+import com.vajay.homemonitor.model.WeatherData;
 import com.vajay.homemonitor.service.MqttMessageHandler;
 
 @Configuration
@@ -53,7 +54,7 @@ public class MqttConfig {
 
     @Bean
     @ServiceActivator(inputChannel = "mqttInputChannel")
-    public MessageHandler handler() {
-        return new MqttMessageHandler();
+    public MessageHandler handler(WeatherData inWeatherData) {
+        return new MqttMessageHandler(inWeatherData);
     }
 }
