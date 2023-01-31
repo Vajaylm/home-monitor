@@ -20,7 +20,7 @@ float humidity;
 float pressure;
 
 unsigned long previousPublish = 0;
-const long interval = 60000;
+const long interval = 300000;
 
 void connectToWifi()
 {
